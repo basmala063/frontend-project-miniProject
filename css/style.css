@@ -1,0 +1,642 @@
+:root {
+  --bg: #0d0e21;
+  --nav-bg: #06061b;
+  --surface: #161833;
+  --surface-2: #1f2245;
+  --line: #2c2f5c;
+  --text: #f1f2fb;
+  --muted: #a0a3c9;
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --accent: #9d34e0;
+  --indigo: #5a4df5;
+  --star: #fbbf24;
+  --radius: 16px;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --font:
+    "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.section {
+  padding: 48px 0;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.view-all {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.view-all:hover {
+  color: var(--text);
+}
+
+/* Buttons */
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--primary-hover);
+  --bs-btn-hover-border-color: var(--primary-hover);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--primary-hover);
+  --bs-btn-active-border-color: var(--primary-hover);
+  --bs-btn-active-color: #fff;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 10px 24px;
+}
+.btn-reset {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.btn-reset:hover {
+  color: var(--text);
+  border-color: var(--primary);
+}
+
+/* Navbar */
+.app-navbar {
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 0;
+}
+.app-nav-inner {
+  gap: 16px;
+}
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #fff;
+}
+.brand-logo {
+  width: 40px;
+  object-fit: contain;
+}
+.navbar-toggler {
+  margin-left: auto;
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+}
+
+.nav-search {
+  position: relative;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 0 15px;
+  height: 48px;
+}
+.nav-search .bi-search {
+  color: #fff;
+  font-size: 1.05rem;
+  margin-right: 14px;
+}
+.nav-search-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.nav-search-input::placeholder {
+  color: #a9aac0;
+}
+.nav-search:focus-within {
+  border-color: var(--primary);
+}
+
+.app-navbar .offcanvas {
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  max-width: 50vw;
+}
+.app-navbar .offcanvas-header {
+  border-bottom: 1px solid var(--line);
+}
+.app-navbar .offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nav-search-main {
+  order: -1;
+}
+.nav-links {
+  gap: 5px;
+}
+.app-navbar .nav-link {
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 0;
+}
+.app-navbar .nav-link:hover {
+  color: var(--primary);
+}
+.app-navbar .nav-link.active {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+.cart-badge {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  margin-left: 4px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 20px;
+  text-align: center;
+}
+.nav-location {
+  color: #fff;
+  white-space: nowrap;
+}
+.nav-location .bi {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.nav-avatar {
+  color: #fff;
+}
+.avatar-circle,
+.category-icon,
+.empty-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ffd24d, #f0a62a);
+  color: #26306b;
+  font-size: 1.35rem;
+}
+.nav-avatar.active .avatar-circle {
+  box-shadow:
+    0 0 0 2px var(--nav-bg),
+    0 0 0 4px var(--primary);
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .nav-search-tablet {
+    flex: 0 1 380px;
+    margin-left: auto;
+  }
+  .navbar-toggler {
+    margin-left: 0;
+  }
+}
+@media (min-width: 992px) {
+  .app-navbar {
+    padding: 10px 0;
+  }
+  .app-nav-inner {
+    padding: 0 20px;
+  }
+  .navbar-brand {
+    font-size: 1.6rem;
+  }
+  .brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .app-navbar .offcanvas {
+    max-width: none;
+    border: 0;
+    background: transparent;
+  }
+  .app-navbar.navbar-expand-lg .offcanvas .offcanvas-body {
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    gap: 0;
+  }
+  .nav-search-main {
+    order: 0;
+    margin-left: auto;
+    flex: 0 1 368px;
+    min-width: 180px;
+    height: 40px;
+  }
+  .nav-links {
+    flex-direction: row;
+    margin-left: 56px;
+    gap: 0;
+  }
+  .app-navbar .nav-link {
+    padding: 8px 20px;
+  }
+  .nav-location {
+    margin-left: 48px;
+  }
+  .nav-avatar {
+    margin-left: 28px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nav-links {
+    margin-left: 24px;
+  }
+  .app-navbar .nav-link {
+    padding: 8px 12px;
+  }
+  .nav-avatar {
+    margin-left: 20px;
+  }
+}
+
+/* Hero */
+.hero-section {
+  display: flex;
+  align-items: center;
+  min-height: clamp(520px, 43vw, 680px);
+  padding: 48px clamp(24px, 4.2vw, 64px) 72px;
+  background: url("../images/background-burger.png") right center / cover
+    no-repeat;
+}
+.hero-content {
+  width: 100%;
+  max-width: 700px;
+}
+.hero-title {
+  font-size: clamp(2.6rem, 4.3vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 36px;
+}
+.hero-accent {
+  background: linear-gradient(90deg, #9333ea, #b43ee0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-text {
+  font-size: 1.1rem;
+  max-width: 410px;
+  margin-bottom: 40px;
+}
+
+.location-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  padding: 0 12px 0 24px;
+  background: #fff;
+  border-radius: 18px;
+}
+.location-pin {
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+.location-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #4b4d63;
+  font-family: inherit;
+  font-size: 1.05rem;
+}
+.location-input::placeholder {
+  color: #8a8ca3;
+}
+.btn-find {
+  background: linear-gradient(
+    90deg,
+    var(--primary-hover),
+    var(--accent),
+    var(--indigo)
+  );
+  background-size: 200% 100%;
+  background-position: left center;
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.5s ease-in-out;
+}
+.btn-find:hover {
+  background-position: right center;
+}
+
+/* Categories */
+.category-list {
+  display: flex;
+  gap: 20px;
+  padding: 8px 4px 12px;
+  justify-content: center;
+}
+.category-item {
+  flex: 0 0 auto;
+  width: 84px;
+  text-align: center;
+}
+.category-icon,
+.empty-icon {
+  font-size: 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.category-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 8px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.category-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.category-item:hover .category-icon {
+  border-color: var(--primary);
+  background: var(--surface-2);
+}
+.category-item:hover .category-name {
+  color: var(--text);
+}
+@media (max-width: 850px) {
+  .category-list {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+}
+
+/* Restaurant card */
+.restaurant-card {
+  display: block;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+.restaurant-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.restaurant-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.restaurant-card:hover .restaurant-img img {
+  transform: scale(1.04);
+}
+.restaurant-body {
+  padding: 16px 18px 18px;
+}
+.restaurant-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+.restaurant-cuisine {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+.restaurant-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.meta-rating {
+  color: var(--text);
+  font-weight: 600;
+}
+.meta-rating .bi {
+  color: var(--star);
+}
+.meta-rating .bi,
+.meta-time .bi {
+  margin-right: 2px;
+}
+.fee-tag {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.fee-tag.free {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Restaurants page */
+.page-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.page-sub {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 0 10px;
+}
+.filter-chip {
+  flex: 0 0 auto;
+  background: var(--surface);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.filter-chip:hover {
+  color: var(--text);
+  border-color: var(--primary);
+}
+.filter-chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.results-info {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 8px 0 20px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 56px 16px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.empty-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  color: var(--primary);
+}
+.empty-state h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.empty-state p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.app-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  padding: 44px 0 24px;
+  margin-top: 24px;
+}
+.footer-text {
+  color: var(--muted);
+  max-width: 360px;
+  font-size: 0.9rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .footer-links {
+    justify-content: flex-end;
+  }
+}
+.footer-links a {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.footer-links a:hover {
+  color: var(--text);
+}
+.footer-copy {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin: 28px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 540px;
+    padding: 40px 20px 56px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(6, 6, 27, 0.8) 0%,
+        rgba(6, 6, 27, 0.35) 100%
+      ),
+      url("../images/background-burger.png") 78% center / cover no-repeat;
+  }
+  .hero-title {
+    margin-bottom: 20px;
+  }
+  .hero-text {
+    margin-bottom: 28px;
+  }
+  .location-box {
+    height: 58px;
+    padding-left: 16px;
+    border-radius: 16px;
+  }
+  .btn-find {
+    padding: 9px 16px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .filter-bar {
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+  .restaurant-card:hover,
+  .restaurant-card:hover .restaurant-img img {
+    transform: none;
+  }
+}
