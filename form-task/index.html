@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODK | Food & Account</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <!-- Left Side: Food Images -->
+        <section class="food-side">
+            <div class="brand">FOODK<span>.</span></div>
+
+            <div class="food-content">
+                <p class="tagline">FRESH. TASTY. DELICIOUS.</p>
+                <h1>Good food.<br>Good mood.</h1>
+                <p>Enjoy delicious burgers, cheesy pizza and your favorite meals.</p>
+            </div>
+
+            <div class="food-gallery">
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=85"
+                    alt="Delicious burger"
+                >
+                <img
+                    src="https://images.unsplash.com/photo- pizza"
+                    alt="Pizza"
+                    onerror="this.style.display='none'"
+                >
+            </div>
+
+            <p class="food-footer">Made with love, served with flavor.</p>
+        </section>
+
+        <!-- Right Side: Account Pages -->
+        <section class="form-side">
+
+            <!-- Login Page -->
+            <div id="loginPage" class="page">
+                <div class="top-link">
+                    Don't have an account?
+                    <button class="text-button" onclick="showPage('signupPage')">
+                        Sign Up
+                    </button>
+                </div>
+
+                <div class="form-content">
+                    <h2>Welcome Back!</h2>
+                    <p class="subtitle">Login to order your favorite food.</p>
+
+                    <form id="loginForm">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail"
+                               placeholder="Enter your email" required>
+
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword"
+                               placeholder="Enter your password" required>
+
+                        <p id="loginMessage" class="message"></p>
+
+                        <button type="submit" class="main-button">Login</button>
+                    </form>
+
+                    <p class="bottom-text">
+                        New to Savora?
+                        <button class="text-button"
+                                onclick="showPage('signupPage')">
+                            Create an account
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sign Up Page -->
+            <div id="signupPage" class="page hidden">
+                <div class="top-link">
+                    Already have an account?
+                    <button class="text-button" onclick="showPage('loginPage')">
+                        Login
+                    </button>
+                </div>
+
+                <div class="form-content">
+                    <h2>Create Account</h2>
+                    <p class="subtitle">Join us for something delicious!</p>
+
+                    <form id="signupForm">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName"
+                               placeholder="Enter your full name" required>
+
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail"
+                               placeholder="Enter your email" required>
+
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone"
+                               placeholder="Enter your phone number" required>
+
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword"
+                               placeholder="At least 6 characters"
+                               minlength="6" required>
+
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword"
+                               placeholder="Repeat your password" required>
+
+                        <p id="signupMessage" class="message"></p>
+
+                        <button type="submit" class="main-button">
+                            Create Account
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="profilePage" class="page hidden">
+                <div class="top-link">
+                    <span>My Account</span>
+                    <button class="text-button" id="logoutButton">
+                        Logout
+                    </button>
+                </div>
+
+                <div class="form-content">
+                    <h2>My Profile</h2>
+                    <p class="subtitle">Manage your personal information.</p>
+
+                    <form id="profileForm">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required>
+
+                        <label for="profileEmail">Email Address</label>
+                        <input type="email" id="profileEmail" required>
+
+                        <label for="profilePhone">Phone Number</label>
+                        <input type="tel" id="profilePhone" required>
+
+                        <label for="profileAddress">Delivery Address</label>
+                        <textarea id="profileAddress"
+                                  placeholder="Enter your delivery address"
+                                  rows="3"></textarea>
+
+                        <p id="profileMessage" class="message"></p>
+
+                        <div class="button-group">
+                            <button type="button" id="editButton"
+                                    class="secondary-button">
+                                Edit Profile
+                            </button>
+
+                            <button type="submit" id="saveButton"
+                                    class="main-button" disabled>
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="form.js"></script>
+</body>
+</html>
