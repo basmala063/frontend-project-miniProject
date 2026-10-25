@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your cart and complete your food order.">
+  <title>Cart &amp; Checkout | FoodApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR (replace with the team's shared navbar when integrating) ===== -->
+  <header class="navbar">
+    <div class="inner">
+      <a class="logo" href="index.html" aria-label="FoodApp home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 0-16 0Z"/><path d="M3 15h18"/><path d="M5 19h14a2 2 0 0 0 2-2v-2H3v2a2 2 0 0 0 2 2Z"/></svg>
+        </span>
+        FoodApp
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="#" id="nav-cart" class="active">
+          Cart <span class="cart-badge" aria-label="Items in cart">0</span>
+        </a>
+        <a href="orders.html">My Orders</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== PROGRESS STEPPER ===== -->
+    <ol class="stepper" aria-label="Order progress">
+      <li class="step active" data-step="cart"><span class="dot">1</span><span class="label">Cart</span></li>
+      <li class="step-line" aria-hidden="true"></li>
+      <li class="step" data-step="checkout"><span class="dot">2</span><span class="label">Checkout</span></li>
+      <li class="step-line" aria-hidden="true"></li>
+      <li class="step" data-step="done"><span class="dot">3</span><span class="label">Done</span></li>
+    </ol>
+
+    <!-- ================= CART VIEW ================= -->
+    <section id="view-cart" aria-labelledby="cart-title">
+      <div class="page-head">
+        <h1 id="cart-title">Your Cart</h1>
+        <span id="cart-count-label" class="muted"></span>
+      </div>
+
+      <!-- Empty state -->
+      <div id="cart-empty" class="panel empty" hidden>
+        <svg class="empty-art" viewBox="0 0 120 120" width="120" height="120" fill="none" aria-hidden="true">
+          <circle cx="60" cy="60" r="56" fill="#fff1f0"/>
+          <path d="M30 40h10l9 36h38l8-26H46" stroke="#e63946" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="54" cy="88" r="6" fill="#e63946"/><circle cx="82" cy="88" r="6" fill="#e63946"/>
+        </svg>
+        <h2>Your cart is empty</h2>
+        <p class="muted">Looks like you haven't added any food yet. Pick a restaurant and start ordering!</p>
+        <a href="index.html" class="btn btn-auto">Browse Restaurants</a>
+      </div>
+
+      <!-- Cart content -->
+      <div id="cart-content" class="layout" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Items</h2>
+            <button type="button" id="clear-cart" class="link-btn">Clear cart</button>
+          </div>
+          <div id="cart-items" role="list"></div>
+        </div>
+
+        <aside class="panel summary sticky" aria-label="Order summary">
+          <div id="cart-summary"></div>
+
+          <form id="promo-form" class="promo" novalidate>
+            <label for="promo-input" class="sr-only">Promo code</label>
+            <input type="text" id="promo-input" placeholder="Promo code" autocomplete="off" maxlength="20">
+            <button type="submit" class="btn btn-outline btn-auto">Apply</button>
+          </form>
+          <p id="promo-msg" class="promo-msg" role="status" aria-live="polite"></p>
+
+          <button type="button" id="checkout-btn" class="btn">Proceed to Checkout</button>
+          <a href="index.html" class="link-center">← Continue shopping</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= CHECKOUT VIEW ================= -->
+    <section id="view-checkout" aria-labelledby="checkout-title" hidden>
+      <div class="page-head">
+        <h1 id="checkout-title">Checkout</h1>
+      </div>
+
+      <div class="layout">
+        <form id="checkout-form" class="panel" novalidate>
+          <h2 class="form-title">Delivery details</h2>
+
+          <div class="field">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Ahmed Mohamed" autocomplete="name" required>
+            <div class="error" id="err-fullName" role="alert"></div>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="01012345678" autocomplete="tel" inputmode="tel" required>
+            <div class="error" id="err-phone" role="alert"></div>
+          </div>
+
+          <div class="field">
+            <label for="address">Delivery Address <span class="req">*</span></label>
+            <textarea id="address" name="address" rows="3" placeholder="Street, building, floor, apartment…" autocomplete="street-address" required></textarea>
+            <div class="error" id="err-address" role="alert"></div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes <span class="muted">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="2" maxlength="200" placeholder="Anything we should know? e.g. no onions, ring the bell twice"></textarea>
+            <div class="counter"><span id="notes-count">0</span>/200</div>
+          </div>
+
+          <h2 class="form-title">Payment method</h2>
+          <label class="pay-option">
+            <input type="radio" name="payment" value="Cash on Delivery" checked>
+            <span class="pay-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+            </span>
+            <span class="pay-text"><strong>Cash on Delivery</strong><small>Pay with cash when your order arrives</small></span>
+          </label>
+
+          <button type="submit" id="place-btn" class="btn btn-lg">Place Order</button>
+        </form>
+
+        <aside class="panel summary sticky" aria-label="Order summary">
+          <h3>Your items</h3>
+          <div id="items-preview" class="preview"></div>
+          <hr>
+          <div id="checkout-summary"></div>
+          <button type="button" id="back-btn" class="btn btn-outline">← Back to Cart</button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= SUCCESS VIEW ================= -->
+    <section id="view-success" class="panel success" aria-live="polite" hidden>
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 52 52" width="64" height="64"><circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 27l8 8 16-17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Order placed successfully!</h2>
+      <p class="muted">Thank you! Your order has been received and is now pending confirmation.</p>
+
+      <div class="oid">
+        <span>Order ID</span>
+        <strong id="order-id-text"></strong>
+        <button type="button" id="copy-id" class="link-btn">Copy</button>
+      </div>
+
+      <div id="order-recap" class="recap"></div>
+
+      <div class="actions">
+        <a href="orders.html" class="btn">View My Orders</a>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">© FoodApp · Student project</footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
