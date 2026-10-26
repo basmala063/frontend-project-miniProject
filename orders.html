@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Orders | FoodApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/orders.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <section class="page-intro">
+      <p class="eyebrow">YOUR FOOD, YOUR WAY</p>
+      <h1>My Orders</h1>
+      <p>Track your orders and see what you ordered.</p>
+    </section>
+
+    <div id="orders-message" class="notice hidden"></div>
+    <section id="orders-list" class="orders-list"></section>
+
+    <div id="details-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <button id="close-modal" class="close-button" aria-label="Close">×</button>
+        <p class="eyebrow">ORDER INFORMATION</p>
+        <h2 id="modal-title">Order details</h2>
+        <div id="order-details"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © FoodApp · Student project
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/orders.js"></script>
+</body>
+</html>

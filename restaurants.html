@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurants | FoodApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/restaurants.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  
+  <main class="container">
+    <section class="page-intro">
+      <p class="eyebrow">FIND YOUR NEXT FAVORITE</p>
+      <h1>Restaurants</h1>
+      <p>Explore the best spots and pick something delicious.</p>
+    </section>
+    
+    <form class="search-form page-search" id="restaurant-search">
+      <input id="restaurant-query" placeholder="Search by restaurant or food..." aria-label="Search restaurants">
+      <button class="btn">Search</button>
+    </form>
+    
+    <div id="filter-list" class="filter-list"></div>
+    <div id="restaurant-list" class="restaurant-grid"></div>
+    <p id="no-results" class="notice hidden">No restaurants found. Try another search or category.</p>
+  </main>
+
+  <footer class="footer">
+    © FoodApp · Student project
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

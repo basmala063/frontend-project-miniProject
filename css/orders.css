@@ -1,0 +1,90 @@
+/* --- Orders List & Cards --- */
+.orders-list {
+  display: grid;
+  gap: 16px;
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 4px 18px #38205d08;
+}
+
+.order-card-top,
+.order-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.order-id {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.order-date,
+.order-items {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.order-status {
+  display: inline-block;
+  border-radius: 30px;
+  padding: 6px 12px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.total-price {
+  font-size: 1.15rem;
+}
+
+/* --- Modal & Details --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #21163399;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 40;
+}
+
+.modal-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  width: min(560px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  box-shadow: var(--shadow);
+}
+
+.close-button {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  border: 0;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.4rem;
+}
+
+.order-detail-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}

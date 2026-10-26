@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account | FoodApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container account-layout">
+    <section class="account-art">
+      <p class="eyebrow">WELCOME TO FOODAPP</p>
+      <h1>Good food starts here.</h1>
+      <p>Sign in to manage your profile and keep your food journey in one place.</p>
+    </section>
+
+    <section class="panel account-panel">
+      <div id="auth-view">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth="login">Log in</button>
+          <button class="auth-tab" data-auth="signup">Sign up</button>
+        </div>
+
+        <form id="login-form">
+          <h2>Welcome back</h2>
+          <label>Email<input id="login-email" type="email" required autocomplete="email"></label>
+          <label>Password<input id="login-password" type="password" required autocomplete="current-password"></label>
+          <p id="login-message" class="form-message" aria-live="polite"></p>
+          <button class="btn full-width">Log in</button>
+        </form>
+
+        <form id="signup-form" class="hidden">
+          <h2>Create your account</h2>
+          <label>Full name<input id="signup-name" required autocomplete="name"></label>
+          <label>Email<input id="signup-email" type="email" required autocomplete="email"></label>
+          <label>Password<input id="signup-password" type="password" minlength="6" required autocomplete="new-password"></label>
+          <p id="signup-message" class="form-message" aria-live="polite"></p>
+          <button class="btn full-width">Create account</button>
+        </form>
+      </div>
+
+      <div id="profile-view" class="hidden">
+        <p class="eyebrow">YOUR ACCOUNT</p>
+        <h2>My Profile</h2>
+        <form id="profile-form">
+          <label>Full name<input id="profile-name" required></label>
+          <label>Email<input id="profile-email" type="email" required></label>
+          <label>Phone<input id="profile-phone" type="tel"></label>
+          <label>Delivery address<textarea id="profile-address" rows="3"></textarea></label>
+          <p id="profile-message" class="form-message" aria-live="polite"></p>
+          <button class="btn full-width">Save profile</button>
+        </form>
+        <button id="logout-btn" class="btn btn-outline full-width top-gap">Log out</button>
+      </div>
+
+      <p class="fine-print">Demo project: account information is stored in this browser only. Do not use a real password.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © FoodApp · Student project
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

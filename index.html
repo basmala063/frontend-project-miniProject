@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodApp | Discover great food</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">GOOD FOOD, GOOD MOOD</p>
+        <h1>Your next favorite meal is <span>one click away.</span></h1>
+        <p>Discover local favorites, choose what you love, and get it delivered to your door.</p>
+        <form class="search-form" action="restaurants.html">
+          <input name="q" placeholder="Search restaurants or food..." aria-label="Search restaurants or food">
+          <button class="btn">Find food</button>
+        </form>
+        <a class="text-link" href="restaurants.html">Explore all restaurants →</a>
+      </div>
+      <div class="hero-image" role="img" aria-label="Delicious burger and fries"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">WHAT ARE YOU CRAVING?</p>
+          <h2>Popular categories</h2>
+        </div>
+        <a class="text-link" href="restaurants.html">View all →</a>
+      </div>
+      <div id="category-list" class="category-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">HAND-PICKED FOR YOU</p>
+          <h2>Popular restaurants</h2>
+        </div>
+        <a class="text-link" href="restaurants.html">See all restaurants →</a>
+      </div>
+      <div id="popular-list" class="restaurant-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © FoodApp · Student project
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
