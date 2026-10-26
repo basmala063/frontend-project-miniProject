@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders | Savora</title>
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a class="brand" href="index.html">SAVORA<span>.</span></a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="cart.html">Cart</a>
+            <a class="active" href="orders.html">My Orders</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-heading">
+            <p class="eyebrow">YOUR FOOD, YOUR WAY</p>
+            <h1>My Orders</h1>
+            <p>Track your orders and see what you ordered.</p>
+        </section>
+
+        <div id="ordersMessage" class="notice hidden"></div>
+        <section id="ordersList" class="orders-list"></section>
+    </main>
+
+    <div id="detailsModal" class="modal hidden"
+         role="dialog" aria-modal="true">
+
+        <div class="modal-card">
+            <button id="closeModal" class="close-button"
+                    aria-label="Close">&times;</button>
+
+            <p class="eyebrow">ORDER INFORMATION</p>
+            <h2>Order Details</h2>
+            <div id="orderDetails"></div>
+        </div>
+    </div>
+
+    <script src="orders.js"></script>
+</body>
+</html>
